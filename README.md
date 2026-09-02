@@ -2,6 +2,10 @@
 
 A C++ console application that simulates the operator controls and safety systems of an industrial conveyor belt.
 
+## Screenshot
+
+![Conveyor simulator showing system status](screenshot.png)
+
 ## Features
 
 * Starts and stops the conveyor
