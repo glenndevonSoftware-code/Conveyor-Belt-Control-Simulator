@@ -27,21 +27,21 @@ void ConveyorSystem::displayMenu() const {
 }
 
 int ConveyorSystem::getOperatorChoice() const {
-    int choice;
-    std::cin >> choice;
+    std::string input;
 
-    if (std::cin.fail()) {
-        std::cin.clear();
-        std::cin.ignore(
-            std::numeric_limits<std::streamsize>::max(),
-            '\n'
-        );
-
-        return -1;
+    // Exit normally if the input stream closes.
+    if (!std::getline(std::cin, input)) {
+        return 9;
     }
 
-    return choice;
+    // Accept exactly one menu digit; reject mixed or extra characters.
+    if (input.length() == 1 && input[0] >= '1' && input[0] <= '9') {
+        return input[0] - '0';
+    }
+
+    return -1;
 }
+ 
 
 void ConveyorSystem::startConveyor() {
     if (emergencyStopActive) {
